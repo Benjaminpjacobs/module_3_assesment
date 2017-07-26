@@ -47,13 +47,22 @@ RSpec.describe "Items Requests" do
     expect(Item.first).to eq(item2)
   end
 
-  # scenario " POST request to /api/v1/items with a name, description, and image_url" do
-  #   expect(Item.count).to eq(0)
+  scenario " POST request to /api/v1/items with a name, description, and image_url" do
+    expect(Item.count).to eq(0)
 
-  #   post "/api/v1/items?item[name]=item1&item[description]=item+description&item[image_url]=http://via.placeholder.com/350x150"
+    post "/api/v1/items?item[name]=item1&item[description]=item+description&item[image_url]=http://via.placeholder.com/350x150"
 
-  #   expect(response).to be_success
-  # end
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_success
+    expect(response.status).to eq(201)
+    expect(item).to have_key(:id)
+    expect(item).to have_key(:name)
+    expect(item).to have_key(:description)
+    expect(item).to have_key(:image_url)
+    expect(item).to_not have_key(:created_at)
+    expect(item).to_not have_key(:updated_at)
+  end
 end
 
 
