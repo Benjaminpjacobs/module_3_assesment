@@ -11,9 +11,9 @@ class Api::V1::ItemsController < ApiBaseController
     item =  Item.find(params[:id])
     if item.destroy
       render json: {
-        status: 200,
+        status: 204,
         message: "Item #{item.id} successfully delete",
-      }, :status => 200
+      }, :status => 204
     end  
   end
 end

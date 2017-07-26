@@ -40,17 +40,20 @@ RSpec.describe "Items Requests" do
     expect(Item.count).to eq(2)
 
     delete "/api/v1/items/1"
-    binding.pry
 
     expect(response).to be_success
+    expect(response.status).to eq(204)
     expect(Item.count).to eq(1)
     expect(Item.first).to eq(item2)
   end
 
-  scenario " POST request to /api/v1/items with a name, description, and image_url"
-    post "/api/v1/items?item[name]=item1&item[description]=item+description&item[image_url]=http://via.placeholder.com/350x150"
-    end
-  end
+  # scenario " POST request to /api/v1/items with a name, description, and image_url" do
+  #   expect(Item.count).to eq(0)
+
+  #   post "/api/v1/items?item[name]=item1&item[description]=item+description&item[image_url]=http://via.placeholder.com/350x150"
+
+  #   expect(response).to be_success
+  # end
 end
 
 
