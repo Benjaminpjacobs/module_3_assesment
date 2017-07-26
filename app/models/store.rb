@@ -10,7 +10,6 @@ class Store
   end
 
   def self.within_zip(args)
-    binding.pry
     BestBuyService.within_radius(args).map do |store|
       new(store)
     end
