@@ -10,7 +10,8 @@ class Store
   end
 
   def self.within_zip(args)
-    BestBuyService.within_radius({zip: args["search"], radius: args["radius"]})[:stores].map do |store|
+    binding.pry
+    BestBuyService.within_radius(args).map do |store|
       new(store)
     end
   end

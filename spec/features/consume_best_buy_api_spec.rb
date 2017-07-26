@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "as a user" do
   it "can see all stores within 25 miles of zipcode" do
     visit root_path
-    fill_in "search", with: "80202"
+    fill_in "zip", with: "80202"
     click_button "Search"
 
     expect(page).to have_content('17 Total Stores')

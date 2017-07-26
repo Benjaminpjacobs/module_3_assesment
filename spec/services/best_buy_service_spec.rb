@@ -9,10 +9,9 @@ RSpec.describe BestBuyService do
     
     response = BestBuyService.within_radius({radius: radius, zip:zip})
  
-    expect(response).to have_key(:stores)
-    expect(response[:stores].count).to eq(17)
+    expect(response.count).to eq(17)
 
-    store = response[:stores].first
+    store = response.first
     
     expect(store).to be_a Hash
     expect(store).to have_key(:longName)

@@ -7,6 +7,6 @@ class SearchController < ApplicationController
 
   private
     def search_params
-      params.permit(:search, :radius)
+      params.permit(:zip, :radius)
     end
 end

@@ -14,7 +14,7 @@ class BestBuyService
                                 show: "longName,city,distance,phone,storeType", 
                                 pageSize: 20, 
                                 apiKey: "#{ENV['best_buy_api_key']}"}
-    JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)[:stores]
   end
 
   def path

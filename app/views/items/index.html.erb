@@ -1,6 +1,6 @@
 <%=form_tag("/search", method: :get) do%>
 <%= hidden_field_tag "radius", '25' %>
-<%= text_field_tag (:search) %>
+<%= text_field_tag (:zip) %>
 <%= label_tag "search", "Find Stores Nearby" %>
 <%= submit_tag "Search" %>
 <%end%>
