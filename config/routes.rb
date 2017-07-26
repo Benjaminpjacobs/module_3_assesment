@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
   
-  get '/store/search', to: "store_search#new"
+  get '/search', to: "search#new", as: "new_search"
 
   resources :items,  only: [:index, :show]
   resources :orders, only: [:index, :show]
