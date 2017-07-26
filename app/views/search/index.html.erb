@@ -1,25 +1,26 @@
 <h1>
-<%=@stores.total_entries%> Total Stores
+    <%=@stores.total_entries%> Total Stores
 </h1>
 
 <%@stores.each do |store|%>
-  <div class='store'>
-      <p>Name:
-          <%=store.name%>
-      </p>
-      <p>City:
-          <%=store.city%>
-      </p>
-      <p>Distance:
-          <%=store.distance%>
-      </p>
-      <p>Phone Number:
-          <%=store.phone%>
-      </p>
-      <p>Type:
-          <%=store.type%>
-      </p>
-  </div>
-<%end%>
+    <div class='store'>
+        <p>Name:
+            <%=store.name%>
+        </p>
+        <p>City:
+            <%=store.city%>
+        </p>
+        <p>Distance:
+            <%=store.distance%>
+        </p>
+        <p>Phone Number:
+            <%=store.phone%>
+        </p>
+        <p>Type:
+            <%=store.type%>
+        </p>
 
-<%= will_paginate @stores %>
+    </div>
+    <%end%>
+
+        <%= will_paginate @stores %>
