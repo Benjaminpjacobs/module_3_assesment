@@ -40,7 +40,6 @@ RSpec.describe "Items Requests" do
     expect(Item.count).to eq(2)
 
     delete "/api/v1/items/1"
-
     expect(response).to be_success
     expect(response.status).to eq(204)
     expect(Item.count).to eq(1)

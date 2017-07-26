@@ -1,3 +1,9 @@
+<%=form_tag('/store/search', method: :get) do%>
+<%= text_field_tag (:search) %>
+<%= label_tag "search", "Find Stores Nearby" %>
+<%= submit_tag "Search" %>
+<%end%>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">

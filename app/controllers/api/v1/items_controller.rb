@@ -10,10 +10,7 @@ class Api::V1::ItemsController < ApiBaseController
   
   def destroy
     if @item.destroy
-      render json: {
-        status: 204,
-        message: "Item #{item.id} successfully delete",
-      }, :status => 204
+      render :nothing => true, :status => 204
     end  
   end
 

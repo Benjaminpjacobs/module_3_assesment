@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
   
+  get '/store/search', to: "store_search#new"
+
   resources :items,  only: [:index, :show]
   resources :orders, only: [:index, :show]
   resources :users,  only: [:index, :show]
