@@ -2,18 +2,20 @@ require 'rails_helper'
 
 RSpec.describe "Items Requests" do
   scenario "GET request to /api/v1/items" do
+      item = create_list(:item, 5)
 
       get "/api/v1/items"
       items = JSON.parse(response.body, symbolize_names: true)
       item = items.first
 
       expect(response).to be_success
+      expect(items.count).to eq(5)
       expect(item).to have_key(:id)
       expect(item).to have_key(:name)
       expect(item).to have_key(:description)
       expect(item).to have_key(:image_url)
-      expect(item).to_to have_key(:created_at)
-      expect(item).to_to have_key(:updated_at)
+      expect(item).to_not have_key(:created_at)
+      expect(item).to_not have_key(:updated_at)
   end
   # scenario "Gets a single item" do
   #   context "GET request to `/api/v1/items/1`" do
