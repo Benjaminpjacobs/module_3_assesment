@@ -17,11 +17,21 @@ RSpec.describe "Items Requests" do
       expect(item).to_not have_key(:created_at)
       expect(item).to_not have_key(:updated_at)
   end
-  # scenario "Gets a single item" do
-  #   context "GET request to `/api/v1/items/1`" do
-  #     get "/api/v1/items/1"
-  #   end
-  # end
+
+  scenario "GET request to `/api/v1/items/1" do
+      item = create(:item)
+      
+      get "/api/v1/items/1"
+      item = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_success
+      expect(item).to have_key(:id)
+      expect(item).to have_key(:name)
+      expect(item).to have_key(:description)
+      expect(item).to have_key(:image_url)
+      expect(item).to_not have_key(:created_at)
+      expect(item).to_not have_key(:updated_at)
+  end
   # scenario "Deletes a single item" do
   #   context "DELETE request to `/api/v1/items/1`" do
   #     delete "/api/v1/items"
