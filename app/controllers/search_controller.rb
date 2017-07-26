@@ -11,8 +11,7 @@ class SearchController < ApplicationController
     @stores = JSON.parse(response.body, symbolize_names: true)[:stores].map do |store|
       Store.new(store)
     end
-    binding.pry
-
+    
     
   end
 end

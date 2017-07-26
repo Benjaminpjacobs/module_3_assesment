@@ -1,10 +1,10 @@
 <h1><%=@stores.count%> Total Stores</h1>
-<%@stores.each do |store|%>
+<%@stores.first(10).each do |store|%>
   <div class='store'>
     <p>Name: <%=store.name%></p>
     <p>City: <%=store.city%></p>
     <p>Distance: <%=store.distance%></p>
-    <p>Phone: <%=store.phone%></p>
-    <p>Type <%=store.type%></p>
+    <p>Phone Number: <%=store.phone%></p>
+    <p>Type: <%=store.type%></p>
   </div>
 <%end%>
