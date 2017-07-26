@@ -1,15 +1,15 @@
 class Api::V1::ItemsController < ApiBaseController
+  before_action :set_item, only: [:show, :destroy]
   def index
     render json: Item.all
   end
 
   def show
-    render json: Item.find(params[:id])
+    render json: @item
   end
   
   def destroy
-    item =  Item.find(params[:id])
-    if item.destroy
+    if @item.destroy
       render json: {
         status: 204,
         message: "Item #{item.id} successfully delete",
@@ -25,7 +25,14 @@ class Api::V1::ItemsController < ApiBaseController
   end
 
   private
+  
+    attr_reader :item
+
     def item_params
       params.require(:item).permit(:name, :description, :image_url)
+    end
+
+    def set_item
+      @item = Item.find(params[:id])
     end
 end
