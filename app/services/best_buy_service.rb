@@ -2,7 +2,7 @@ class BestBuyService
   def initialize(args)
     @zip = args[:zip] if args[:zip]
     @radius = args[:radius] if args[:radius]
-    @conn = Faraday.new(:url => "https://api.bestbuy.com")
+    @conn = Faraday.new(:url => "https://api.bestbuy.com") 
   end
 
   def self.within_radius(args)
@@ -14,6 +14,7 @@ class BestBuyService
                                 show: "longName,city,distance,phone,storeType", 
                                 pageSize: 20, 
                                 apiKey: "#{ENV['best_buy_api_key']}"}
+                                
     JSON.parse(response.body, symbolize_names: true)[:stores]
   end
 
@@ -23,4 +24,6 @@ class BestBuyService
 
   private
    attr_reader :zip, :radius
+
 end
+  

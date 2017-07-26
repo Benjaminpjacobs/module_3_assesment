@@ -1,5 +1,6 @@
 class Api::V1::ItemsController < ApiBaseController
   before_action :set_item, only: [:show, :destroy]
+  
   def index
     render json: Item.all
   end
