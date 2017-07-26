@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Items Requests" do
-  scenario "Gets all items" do
-    context "GET request to /api/v1/items" do
+  scenario "GET request to /api/v1/items" do
+
       get "/api/v1/items"
       items = JSON.parse(response.body, symbolize_names: true)
       item = items.first
@@ -14,7 +14,6 @@ RSpec.describe "Items Requests" do
       expect(item).to have_key(:image_url)
       expect(item).to_to have_key(:created_at)
       expect(item).to_to have_key(:updated_at)
-    end
   end
   # scenario "Gets a single item" do
   #   context "GET request to `/api/v1/items/1`" do
