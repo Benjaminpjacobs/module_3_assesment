@@ -1,9 +1,12 @@
 class SearchController < ApplicationController
   def index
-    
-    @stores = BestBuyService.within_radius({zip: params[:search], radius: 25})[:stores].map do |store|
-      Store.new(store)
-    end
+    binding.pry
+    @stores = Store.within_zip(search_params)
     
   end
+
+  private
+    def search_params
+      params.permit(:search, :radius)
+    end
 end
